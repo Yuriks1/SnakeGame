@@ -10,7 +10,7 @@ public class GamePanel extends JPanel implements ActionListener {
     static final int SCREEN_HEIGHT = 600;
     static final int UNIT_SIZE = 30;
     static final int GAME_UNITS = (SCREEN_WIDTH* SCREEN_HEIGHT)/ UNIT_SIZE;
-    static final int DELAY = 95;
+    int delay =95;
     final int x[] = new int[GAME_UNITS];
     final int y[] = new int[GAME_UNITS];
     int bodyParts = 6;
@@ -41,7 +41,7 @@ public class GamePanel extends JPanel implements ActionListener {
 
         newApple();
         running = true;
-        timer = new Timer(DELAY,this);
+        timer = new Timer(delay,this);
         timer.start();
 
     }
@@ -122,7 +122,9 @@ public class GamePanel extends JPanel implements ActionListener {
             bodyParts++;
             applesEaten++;
             newApple();
+
         }
+
 
 
     }
@@ -131,8 +133,9 @@ public class GamePanel extends JPanel implements ActionListener {
         // checks if head collides with body
         for (int i = bodyParts; i > 0 ; i--) {
 
-            if(( x[0] ==x [i] ) && (y[0] == y[i])){
+            if ((x[0] == x[i]) && (y[0] == y[i])) {
                 running = false;
+                break;
             }
             
         }
@@ -143,7 +146,7 @@ public class GamePanel extends JPanel implements ActionListener {
         }
 
         //check if head touches right border
-        if(x[0] > SCREEN_WIDTH){
+        if(x[0] > SCREEN_WIDTH-UNIT_SIZE){
             running = false;
         }
 
@@ -153,7 +156,7 @@ public class GamePanel extends JPanel implements ActionListener {
         }
 
         //check if head touches bottom border
-        if(y[0] > SCREEN_HEIGHT){
+        if(y[0] > SCREEN_HEIGHT-UNIT_SIZE){
             running = false;
         }
         if(!running){
