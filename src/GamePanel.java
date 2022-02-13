@@ -11,8 +11,8 @@ public class GamePanel extends JPanel implements ActionListener {
     static final int UNIT_SIZE = 30;
     static final int GAME_UNITS = (SCREEN_WIDTH* SCREEN_HEIGHT)/ UNIT_SIZE;
     static final int DELAY = 95;
-    final int x[] = new int[GAME_UNITS];
-    final int y[] = new int[GAME_UNITS];
+    final int[] x = new int[GAME_UNITS];
+    final int[] y = new int[GAME_UNITS];
     int bodyParts = 6;
     int applesEaten;
     int appleX;
@@ -107,10 +107,10 @@ public class GamePanel extends JPanel implements ActionListener {
 
         }
         switch (direction) {
-            case 'U' -> y[0] = y[0] - UNIT_SIZE;
-            case 'D' -> y[0] = y[0] + UNIT_SIZE;
-            case 'L' -> x[0] = x[0] - UNIT_SIZE;
-            case 'R' -> x[0] = x[0] + UNIT_SIZE;
+            case 'U' -> y[0] -= UNIT_SIZE;
+            case 'D' -> y[0] += UNIT_SIZE;
+            case 'L' -> x[0] -= UNIT_SIZE;
+            case 'R' -> x[0] += UNIT_SIZE;
         }
 
 
@@ -122,7 +122,6 @@ public class GamePanel extends JPanel implements ActionListener {
             bodyParts++;
             applesEaten++;
             newApple();
-
         }
 
 
