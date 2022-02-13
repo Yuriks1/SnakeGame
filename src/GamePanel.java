@@ -10,7 +10,7 @@ public class GamePanel extends JPanel implements ActionListener {
     static final int SCREEN_HEIGHT = 600;
     static final int UNIT_SIZE = 30;
     static final int GAME_UNITS = (SCREEN_WIDTH* SCREEN_HEIGHT)/ UNIT_SIZE;
-    int delay =95;
+    static final int DELAY = 95;
     final int x[] = new int[GAME_UNITS];
     final int y[] = new int[GAME_UNITS];
     int bodyParts = 6;
@@ -41,7 +41,7 @@ public class GamePanel extends JPanel implements ActionListener {
 
         newApple();
         running = true;
-        timer = new Timer(delay,this);
+        timer = new Timer(DELAY,this);
         timer.start();
 
     }
@@ -227,7 +227,5 @@ public class GamePanel extends JPanel implements ActionListener {
             }
 
         }
-
-
     }
 }
